@@ -1,0 +1,99 @@
+---
+pagetitle: "Matti Boie-Wegener"
+---
+
+::::: {.home}
+
+:::: {.home-side}
+<img class="pfp" src="profile.jpg" alt="Matti Boie-Wegener">
+<p class="name">Matti Boie-Wegener</p>
+<p class="role">Postdoctoral Researcher · Accounting &amp; Taxation</p>
+<p class="affil">University of Mannheim &amp;<br>Center for Corporate Behavior and Regulation Analysis</p>
+<nav class="contact">
+<a href="mailto:matti.boie-wegener@uni-mannheim.de" title="Email" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+<a class="txt" href="https://www.dropbox.com/scl/fi/yznnb6jh986cr6l63jut3/main.pdf?rlkey=9tf08818gf5vhbac0e6vuktge&raw=1" title="CV (PDF)" aria-label="CV">CV</a>
+<a href="https://scholar.google.com/citations?user=aEDAaSIAAAAJ" title="Google Scholar" aria-label="Google Scholar"><i class="bi bi-google"></i></a>
+<a class="txt" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5653644" title="SSRN author page" aria-label="SSRN">SSRN</a>
+<a href="https://www.linkedin.com/in/matti-boie-wegener-16b547146/" title="LinkedIn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+</nav>
+<nav class="section-nav">
+<a href="#about">About</a>
+<a href="#news">News</a>
+<a href="#research">Research</a>
+<a href="#teaching">Teaching</a>
+</nav>
+::::
+
+:::: {.home-main}
+
+## About {#about}
+
+I am a postdoctoral researcher in Accounting and Taxation at the University of
+Mannheim. My research examines how taxation, regulation, and public policy shape
+corporate behavior and real economic outcomes.
+
+**Interests:** corporate responses to tax incentives · transparency requirements ·
+international regulatory frameworks · cross-border income allocation in
+multinational firms · the economic effects of tax and transparency policy.
+
+## News {#news}
+
+::: {.news}
+- <span class="date">Feb 2026</span> Joined the University of Mannheim as a Postdoctoral Researcher (Taxation, Accounting &amp; Finance; COBRA).
+- <span class="date">2026</span> Presenting joint work with Marcel Olbert at Stanford SITE Public Economics and the Waterloo–Austin Symposium.
+:::
+
+## Research {#research}
+
+### Closing Pandora's IP Box: Real Effects of the Nexus Approach
+[single-authored · under review · 2026 · [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4837668)]{.paper-meta}
+
+<div class="paper-abstract">To combat multinational firms' tax avoidance, policymakers have taken three approaches: direct anti-avoidance rules, transparency mandates, and tax system changes that align corporate activity with cash tax benefits. The latter approach is little understood but has potentially meaningful economic effects beyond limiting tax avoidance. This study examines such a tax system change: the recent Nexus Approach mandated in the European Union to align tax incentives for innovation with firms' real activity. I show that innovation output, investment, and the demand for research and development (R&amp;D) personnel increase in countries that offer preferential tax regimes for income from intellectual property (IP Box countries) after the nexus requirement is introduced. The effects are strongest among affiliates that, prior to the reform, engaged more extensively in IP-Box-related income shifting, had lower frictions to expanding domestic R&amp;D, or operated in countries with strong tax benefits and subsidy environments. This growth, however, comes at the expense of non-IP Box countries, as multinationals reallocate innovative activities and investments within their group.</div>
+
+### Do Transfer Pricing Arbitration Clauses Foster Profit Shifting and Foreign Direct Investment?
+[with Andreas Oestreicher · work in progress · 2025]{.paper-meta}
+
+<div class="paper-abstract">Using a stacked difference-in-differences design, we look into the profit-shifting responses of multinational entities (MNEs) to arbitration clauses in double taxation treaties (DTTs). Based on bilateral data on MNE financials, trade flows, and foreign direct investment (FDI), we find that the introduction of an arbitration clause in existing DTTs has, on average, a significant impact on profit shifting. In line with this, the introduction of arbitration leads to an increase in the trade value-added for affiliates in low-taxed countries. The effect is stronger for affiliates in countries having a larger exposure to tax avoidance and lower statutory tax rates. In contrast, the introduction of an arbitration clause weakens the inflow of FDI into lower-taxed affiliated companies and increases profit distributions. A series of additional tests suggest that our results are robust.</div>
+
+### Don't Fear the Sunlight: Tax Transparency and Multinational Investment in the Global South
+[with Marcel Olbert · work in progress · 2026]{.paper-meta}
+
+### Publications {#publications}
+Boie-Wegener, M., A. Oestreicher, R. Koch & L. Schön (2024). "The Fiscal Effects of Tax Rate Cuts and Depreciation Allowances in Times of Crisis." *Steuer und Wirtschaft (StuW)*, 101(2), 104–123. *(published in German)*
+
+<p class="pub-group">Practitioner contributions</p>
+
+Bärsch, S.-E., M. Boie-Wegener & M. Olbert (2026). "Key Insights from Empirical Tax Research: A Current Overview and Implications for Corporate Practice." *Der Betrieb*, 79(16), 954–962. *(published in German)*
+
+Boie-Wegener, M., A. Oestreicher, R. Koch, L. Schön & S. Hartmann (2023). "Revenue and Investment Effects of Currently Discussed Corporate Taxation Measures." *ifst-Schrift No. 550*. *(published in German)*
+
+## Teaching {#teaching}
+
+I teach corporate taxation and empirical tax research, with an emphasis on
+institutional knowledge and empirical research skills and an applied,
+policy-relevant focus.
+
+<p class="teach-level">Bachelor</p>
+<div class="teach">
+<div class="course"><span class="course-name">Company Taxes I</span><span class="course-meta">exercise class · 2021–23</span></div>
+<div class="course"><span class="course-name">Seminar on the Determination of Income</span><span class="course-meta">supervision</span></div>
+<div class="course"><span class="course-name">Workshop on Academic Writing and Research Methods</span><span class="course-meta">instructor · 2021–23</span></div>
+<div class="course"><span class="course-name">Bachelor's theses</span><span class="course-meta">supervision</span></div>
+</div>
+
+<p class="teach-level">Master</p>
+<div class="teach">
+<div class="course"><span class="course-name">Seminar on Company Taxation</span><span class="course-meta">supervision</span></div>
+<div class="course"><span class="course-name">Seminar on Empirical Tax Research</span><span class="course-meta">instructor · 2025</span></div>
+<div class="course"><span class="course-name">Workshop on Academic Writing and Research Methods</span><span class="course-meta">instructor</span></div>
+<div class="course"><span class="course-name">Master's theses</span><span class="course-meta">supervision</span></div>
+</div>
+
+<div class="teach-stats">
+<div class="stat"><span class="stat-n">26+</span><span class="stat-l">bachelor's &amp; master's theses supervised</span></div>
+<div class="stat"><span class="stat-n">20+</span><span class="stat-l">seminar papers · company taxation</span></div>
+<div class="stat"><span class="stat-n">12+</span><span class="stat-l">seminar papers · income determination</span></div>
+</div>
+::::
+
+:::::

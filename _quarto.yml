@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Matti Boie-Wegener"
+  description: "Postdoctoral researcher in accounting and taxation, University of Mannheim."
+  site-url: "https://mattiboiewegener.com"
+  page-footer:
+    border: true
+    center: "© 2026 Matti Boie-Wegener · built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: false
+    page-layout: full
+    link-external-newwindow: true
+    email-obfuscation: references
