@@ -11,10 +11,10 @@ pagetitle: "Matti Boie-Wegener"
 <p class="affil">University of Mannheim &amp;<br>Center for Corporate Behavior and Regulation Analysis</p>
 <nav class="contact">
 <a href="mailto:matti.boie-wegener@uni-mannheim.de" title="Email" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
-<a class="txt" href="https://www.dropbox.com/scl/fi/yznnb6jh986cr6l63jut3/main.pdf?rlkey=9tf08818gf5vhbac0e6vuktge&raw=1" title="CV (PDF)" aria-label="CV">CV</a>
+<a href="https://www.linkedin.com/in/matti-boie-wegener-16b547146/" title="LinkedIn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
 <a href="https://scholar.google.com/citations?user=aEDAaSIAAAAJ" title="Google Scholar" aria-label="Google Scholar"><i class="bi bi-google"></i></a>
 <a class="txt" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5653644" title="SSRN author page" aria-label="SSRN">SSRN</a>
-<a href="https://www.linkedin.com/in/matti-boie-wegener-16b547146/" title="LinkedIn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+<a class="txt" href="https://www.dropbox.com/scl/fi/yznnb6jh986cr6l63jut3/main.pdf?rlkey=9tf08818gf5vhbac0e6vuktge&raw=1" title="CV (PDF)" aria-label="CV">CV</a>
 </nav>
 <nav class="section-nav">
 <a href="#about">About</a>
