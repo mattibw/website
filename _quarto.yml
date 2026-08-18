@@ -3,9 +3,13 @@ project:
   output-dir: _site
   resources:
     - CNAME
+    - favicon.svg
+    - favicon-32.png
+    - apple-touch-icon.png
 
 website:
   title: "Matti Boie-Wegener"
+  favicon: favicon.svg
   description: "Postdoctoral researcher in accounting and taxation, University of Mannheim."
   site-url: "https://mattiboiewegener.com"
   page-footer:
