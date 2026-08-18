@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -38,10 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7ddc3e6012a8aaf130881451f3c3a2a3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-98c7eacc04dc8a1fe11fe799e0cd156c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-20e78d5628e789a90fa9da65a35f530f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4a66624dd6434c7c8f85efda8e0fe358.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,6 +72,180 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+:root{
+  --accent:#0f6a67; --accent-hover:#0a524f; --accent-soft:rgba(15,106,103,.06); --accent-under:rgba(15,106,103,.4);
+  --bg:#fcfcfd; --card:#ffffff; --body:#1b1e26;
+  --border:#e4e4e8; --muted:#6b6f76; --muted2:#4a4d55; --abstract:#33363e;
+  --fig-ink:#3d4350; --fig-mut:#9aa0a8; --spark:var(--accent); --ip-soft:var(--accent-soft);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --w:64rem;
+}
+
+/* neutralise Quarto chrome, keep footer */
+.navbar, #quarto-header, #title-block-header, .quarto-title-banner { display:none !important; }
+#quarto-content > main.content, main.content, #quarto-document-content {
+  max-width:none; padding-left:0; padding-right:0; padding-top:0; margin:0;
+}
+#quarto-content { padding-top:0; }
+
+body{ background:var(--bg); color:var(--body); font-family:var(--sans);
+  font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+
+/* sticky slim top nav */
+.topnav{position:sticky; top:0; z-index:20; background:rgba(252,252,253,.9);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--border); margin-bottom:0;}
+.topnav .inner{max-width:var(--w); margin:0 auto; padding:.7rem 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;}
+.topnav .brand{font-family:var(--serif); font-weight:600; font-size:1.05rem; letter-spacing:-.01em;}
+.topnav nav{display:flex; gap:1.4rem; flex-wrap:wrap;}
+.topnav nav a{font-family:var(--mono); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); text-decoration:none; border-bottom:none;}
+.topnav nav a:hover, .topnav nav a.on{color:var(--accent);}
+
+/* hero / intro */
+.hero{max-width:var(--w); margin:0 auto; padding:2.9rem 24px 2.2rem; display:flex; gap:2.6rem; align-items:center;}
+.hero-text{flex:1; min-width:0;}
+.hero .name{font-family:var(--serif); font-weight:600; font-size:2.5rem; line-height:1.08; letter-spacing:-.015em; margin:0 0 .5rem;}
+.hero .tagline{font-size:1.14rem; line-height:1.5; color:var(--abstract); margin:0 0 1.05rem; max-width:36rem;}
+.hero .bullets{list-style:none; margin:0 0 1.15rem; padding:0; display:flex; flex-direction:column; gap:.42rem;}
+.hero .bullets li{position:relative; padding-left:1.05rem; font-size:.99rem; line-height:1.45;}
+.hero .bullets li::before{content:""; position:absolute; left:0; top:.62em; width:5px; height:5px; border-radius:50%; background:var(--accent);}
+.hero .links{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;}
+.hero .links a{font-family:var(--mono); font-size:.7rem; font-weight:600; letter-spacing:.06em;
+  color:var(--muted2); text-decoration:none; border-bottom:none;
+  display:inline-flex; align-items:center; height:1.75rem; padding:0 .7rem;
+  border:1px solid #cfd0d6; border-radius:5px;}
+.hero .links a:hover{color:var(--accent); border-color:var(--accent);}
+.hero .photo{flex:0 0 auto; width:250px; height:auto; border-radius:10px; border:1px solid var(--border); display:block;}
+@media (max-width:640px){ .hero{flex-direction:column-reverse; align-items:flex-start; gap:1.4rem;} .hero .photo{width:150px;} .hero .name{font-size:2.1rem;} }
+
+/* content wrapper */
+.site{max-width:var(--w); margin:0 auto; padding:0 24px 4rem;}
+.site section{margin-bottom:3rem;}
+.site h2{font-family:var(--serif); font-weight:600; font-size:1.5rem; letter-spacing:-.01em;
+  padding-bottom:.5rem; margin:0 0 1.2rem; border-bottom:1px solid var(--border); text-wrap:balance;}
+.site h3{font-family:var(--serif); font-weight:600; font-size:1.24rem; letter-spacing:-.01em; margin:0 0 .2rem;}
+.site a{color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-under); text-underline-offset:3px; text-decoration-thickness:1px; border-bottom:none;}
+.site p{margin:.2rem 0 .8rem;}
+.paper-card a{ text-decoration:none; }
+.paper-card .paper-meta a{ text-decoration:underline; text-decoration-color:var(--accent-under); text-underline-offset:2px; }
+
+.news ul{list-style:none; margin:0; padding:0;}
+.news li{display:grid; grid-template-columns:6rem 1fr; gap:.9rem; margin-bottom:.6rem; align-items:baseline;}
+.news .date{font-family:var(--mono); font-size:.74rem; color:var(--accent); letter-spacing:.02em;}
+
+/* research cards */
+.paper-card{border:1px solid var(--border); border-radius:12px; background:var(--card);
+  display:grid; grid-template-columns:1fr 420px; margin:0 0 1.7rem;
+  box-shadow:0 1px 2px rgba(20,26,40,.04), 0 14px 34px rgba(20,26,40,.055);}
+@media (max-width:720px){ .paper-card{grid-template-columns:1fr;} }
+.pc-left{padding:24px 26px 0; display:flex; flex-direction:column; border-radius:12px 0 0 12px;}
+.pc-link{margin-bottom:20px;}
+.pc-title{font-family:var(--serif); font-weight:600; font-size:1.24rem; line-height:1.2; letter-spacing:-.01em; margin:0 0 .35rem; text-wrap:balance;}
+.paper-meta{font-family:var(--mono); font-size:.78rem; color:var(--muted); letter-spacing:.02em; display:block; margin:0 0 .75rem;}
+.pc-teaser{font-size:.95rem; line-height:1.62; color:var(--abstract); margin:0 0 12px;}
+.pc-teaser b{color:var(--body); font-weight:600;}
+.abstract-toggle{background:none; border:0; padding:0; margin:0; cursor:pointer;
+  font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.03em; color:var(--accent);
+  display:inline-flex; align-items:center; gap:5px; vertical-align:baseline;}
+.abstract-toggle:hover{text-decoration:underline;}
+.abstract-toggle .chev{font-size:9px; transition:transform .3s ease;}
+.abstract-toggle[aria-expanded="true"] .chev{transform:rotate(180deg);}
+.abstract-full{max-height:0; overflow:hidden; transition:max-height .45s ease;}
+.abstract-full.open{max-height:820px;}
+.abstract-full p{margin:6px 0 12px; padding-top:13px; border-top:1px solid var(--border); font-size:.85rem; line-height:1.58; color:var(--muted);}
+.pc-link{align-self:flex-start; margin-top:auto; text-decoration:none; font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.03em;
+  color:var(--accent); border:1px solid #cfd0d6; border-radius:5px; padding:7px 13px;}
+.pc-link:hover{border-color:var(--accent);}
+.pc-right{padding:18px 19px 17px; background:#fbfbfc; border-left:1px solid var(--border); display:flex; flex-direction:column; gap:12px; border-radius:0 12px 12px 0;}
+@media (max-width:720px){ .pc-left{border-radius:12px 12px 0 0;} .pc-right{border-left:none; border-top:1px solid var(--border); border-radius:0 0 12px 12px;} }
+.fig-head{display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:26px;}
+.toggle{display:inline-flex; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:3px;}
+.toggle button{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.02em; border:0; background:transparent; color:var(--muted); padding:6px 11px; border-radius:5px; cursor:pointer;}
+.toggle button.on{background:var(--card); color:var(--body); box-shadow:0 1px 2px rgba(20,20,30,.08);}
+.replay{font-family:var(--mono); font-size:11px; color:var(--muted); border:1px solid var(--border); background:var(--card); border-radius:6px; padding:6px 10px; cursor:pointer;}
+.replay:hover{color:var(--body); border-color:var(--muted);}
+.stage{background:var(--card); border:1px solid var(--border); border-radius:9px; padding:8px;}
+.stage svg{display:block; width:100%; height:auto;}
+.view{display:none;} .view.active{display:block;}
+.legend{display:flex; gap:14px; font-family:var(--mono); font-size:10.5px; color:var(--muted); flex-wrap:wrap;}
+.legend span{display:inline-flex; align-items:center; gap:5px;}
+.sw{width:11px; height:3px; border-radius:2px; display:inline-block;}
+.sw.g{background:var(--spark);} .sw.n{background:var(--fig-ink);} .sw.o{background:var(--fig-mut);}
+.fig-cap{font-family:var(--mono); font-size:10px; line-height:1.45; color:var(--muted);}
+.coefs{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+.coef{background:var(--card); border:1px solid var(--border); border-radius:8px; padding:10px 9px;}
+.coef .v{font-family:var(--serif); font-size:1.32rem; font-weight:600; color:var(--body); font-variant-numeric:tabular-nums; line-height:1;}
+.coef .v sup{font-size:.55em; color:var(--muted);}
+.coef .k{font-family:var(--mono); font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-top:4px;}
+
+/* relocation figure */
+.mne-fill-ip{fill:var(--ip-soft);} .mne-fill-non{fill:rgba(61,67,80,.05);}
+.mne-border{fill:none; stroke:#d3d6dc; stroke-width:1.3;}
+.mne-split{stroke:#c2c6cd; stroke-width:1.3; stroke-dasharray:4 4;}
+.mne-tab{font-family:var(--mono); font-size:8.5px; letter-spacing:.1em; fill:var(--muted);}
+.c-name{font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; font-weight:600; fill:var(--body);}
+.rcoef{font-family:var(--serif); font-weight:600; font-size:27px; font-variant-numeric:tabular-nums;}
+.rcoef .pct{font-size:15px;}
+.rcoef.up{fill:var(--spark);} .rcoef.dn{fill:var(--fig-ink);}
+.caret{opacity:1; transition:opacity .4s ease;}
+.caret.up{fill:var(--spark);} .caret.dn{fill:var(--fig-ink);}
+
+/* event study + concept sparklines */
+.es-line{fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+.es-line.blue{stroke:var(--fig-ink); opacity:.9;}
+.es-grid{stroke:var(--fig-mut); stroke-width:1; stroke-dasharray:1 4; opacity:.5;}
+.es-zero{stroke:var(--fig-mut); stroke-width:1; opacity:.7;}
+.es-reform{stroke:var(--fig-mut); stroke-width:1; stroke-dasharray:2 3; opacity:.7;}
+.es-lab{fill:var(--muted); font-family:var(--mono); font-size:9px;}
+.es-ci-bar{stroke:var(--fig-ink); stroke-width:1.6; opacity:.32;}
+.es-dot{fill:var(--fig-ink); stroke:var(--card); stroke-width:1.4;}
+.es-dot.ref{fill:var(--card); stroke:var(--fig-mut);} .es-dot.end{fill:var(--spark);}
+#es-path, #es-path-sun{fill:none; stroke:var(--fig-ink); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:0;}
+
+.cap-lab{font-family:var(--mono); font-size:8.5px; letter-spacing:.1em; fill:var(--muted);}
+.cn-box{fill:none; stroke:#d3d6dc; stroke-width:1.2;}
+.cn-name{font-family:var(--mono); font-size:8.5px; letter-spacing:.05em; font-weight:600; fill:var(--body);}
+.cn-link{stroke:var(--fig-mut); stroke-width:1; stroke-dasharray:2 3; opacity:.6;}
+.trend-lab{font-family:var(--mono); font-size:9px; letter-spacing:.05em; font-weight:600;}
+.trend-lab.up{fill:var(--spark);} .trend-lab.dn{fill:var(--fig-ink);}
+.spark-solid{fill:none; stroke:var(--spark); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:0;}
+.spark-dashed{fill:none; stroke:var(--fig-ink); stroke-width:1.8; stroke-dasharray:5 3; stroke-linecap:round; opacity:1;}
+.gl{color:var(--fig-ink);}
+.gl.off{color:var(--fig-mut);}
+.gl.host{color:var(--fig-ink); transition:color .5s ease;}
+.gl.host.net{color:var(--accent);}
+.ex-arrow{stroke:var(--accent); stroke-width:1.4; opacity:.45;}
+.no-arrow{stroke:#c9ccd2; stroke-width:1.3; stroke-dasharray:3 3; opacity:.8;}
+.host-lab{font-family:var(--mono); font-size:8.5px; letter-spacing:.03em; fill:var(--body);}
+.host-lab.net{fill:var(--accent);}
+.host-x{font-family:var(--mono); font-size:7px; letter-spacing:.04em; fill:var(--muted);}
+.doc-g{opacity:0; transition:transform .85s ease, opacity .3s ease;}
+
+@media (prefers-reduced-motion:reduce){
+  .es-line,.caret,.abstract-full,.abstract-toggle .chev,.spark-solid,.spark-dashed,.doc-g,.gl.host,#es-path,#es-path-sun{transition:none !important;}
+}
+
+/* publications (kept) */
+#publications p { padding-left: 1.4rem; text-indent: -1.4rem; font-size: .95rem; }
+#publications .pub-group { margin: 1.9rem 0 .5rem; }
+
+/* teaching (kept) */
+.teach-level { font-family: var(--mono); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin: 1.5rem 0 .5rem; }
+.teach { display: grid; row-gap: .45rem; margin: 0; }
+.course { display: grid; grid-template-columns: 1fr auto; column-gap: 1.5rem; align-items: baseline; }
+.course-name { font-size: .95rem; line-height: 1.45; }
+.course-meta { font-family: var(--mono); font-size: .74rem; color: var(--muted); letter-spacing: .02em; white-space: nowrap; }
+.teach-stats { display: flex; flex-wrap: wrap; gap: 1rem 2.75rem; margin-top: 1.75rem; padding-top: 1.15rem; border-top: 1px solid var(--border); }
+.stat .stat-n { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.45rem; line-height: 1; color: var(--accent); }
+.stat .stat-l { display: block; font-family: var(--mono); font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-top: .35rem; max-width: 12rem; line-height: 1.4; }
+
+@media (max-width: 480px) { .course { grid-template-columns: 1fr; } .course-meta { white-space: normal; margin-top: .05rem; } }
+
+</style>
 
 
 </head>
@@ -87,121 +264,362 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="home">
-<div class="home-side">
-<img class="pfp" src="profile.jpg" alt="Matti Boie-Wegener">
-<p class="name">
-Matti Boie-Wegener
-</p>
-<p class="role">
-Postdoctoral Researcher · Accounting &amp; Taxation
-</p>
-<p class="affil">
-University of Mannheim &amp;<br>Center for Corporate Behavior and Regulation Analysis
-</p>
-<nav class="contact">
-<a href="mailto:matti.boie-wegener@uni-mannheim.de" title="Email" aria-label="Email"><i class="bi bi-envelope-fill"></i></a> <a href="https://www.linkedin.com/in/matti-boie-wegener-16b547146/" title="LinkedIn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a> <a href="https://scholar.google.com/citations?user=aEDAaSIAAAAJ" title="Google Scholar" aria-label="Google Scholar"><i class="bi bi-google"></i></a> <a class="txt" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5653644" title="SSRN author page" aria-label="SSRN">SSRN</a> <a class="txt" href="https://www.dropbox.com/scl/fi/yznnb6jh986cr6l63jut3/main.pdf?rlkey=9tf08818gf5vhbac0e6vuktge&amp;raw=1" title="CV (PDF)" aria-label="CV">CV</a>
-</nav>
-<nav class="section-nav">
-<a href="#about">About</a> <a href="#news">News</a> <a href="#research">Research</a> <a href="#teaching">Teaching</a>
-</nav>
+<header class="topnav">
+  <div class="inner">
+    <span class="brand">Matti Boie-Wegener</span>
+    <nav>
+      <a href="#top">About</a><a href="#news">News</a><a href="#research">Research</a><a href="#teaching">Teaching</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="hero-text">
+    <div class="name" role="heading" aria-level="1">Matti Boie-Wegener</div>
+    <p class="tagline">Empirical research on international taxation, disclosure, and the real effects of tax and regulatory policy on multinational firms.</p>
+    <ul class="bullets">
+      <li>Postdoctoral Researcher in Accounting &amp; Taxation, University of Mannheim</li>
+      <li>Center for Corporate Behavior and Regulation Analysis (COBRA)</li>
+      <li>Interests: corporate responses to tax incentives · transparency requirements · cross-border income allocation in multinational firms</li>
+    </ul>
+    <nav class="links">
+      <a href="mailto:matti.boie-wegener@uni-mannheim.de" title="Email">Email</a>
+      <a href="https://www.linkedin.com/in/matti-boie-wegener-16b547146/" title="LinkedIn">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=aEDAaSIAAAAJ" title="Google Scholar">Scholar</a>
+      <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5653644" title="SSRN">SSRN</a>
+      <a href="https://www.dropbox.com/scl/fi/yznnb6jh986cr6l63jut3/main.pdf?rlkey=9tf08818gf5vhbac0e6vuktge&amp;raw=1" title="CV (PDF)">CV</a>
+    </nav>
+  </div>
+  <img class="photo" src="profile.jpg" alt="Matti Boie-Wegener">
 </div>
-<div class="home-main">
-<section id="about" class="level2">
-<h2 class="anchored" data-anchor-id="about">About</h2>
-<p>I am a postdoctoral researcher in Accounting and Taxation at the University of Mannheim. My research examines how taxation, regulation, and public policy shape corporate behavior and real economic outcomes.</p>
-<p><strong>Interests:</strong> corporate responses to tax incentives · transparency requirements · international regulatory frameworks · cross-border income allocation in multinational firms · the economic effects of tax and transparency policy.</p>
-</section>
-<section id="news" class="level2">
-<h2 class="anchored" data-anchor-id="news">News</h2>
-<div class="news">
-<ul>
-<li><span class="date">Aug 2026</span> Presenting joint work with Marcel Olbert at Stanford SITE Public Economics and the Waterloo–Austin Symposium.</li>
-<li><span class="date">Feb 2026</span> Joined the University of Mannheim as a Postdoctoral Researcher (Taxation, Accounting &amp; Finance; COBRA).</li>
-</ul>
+
+<div class="site">
+  <section id="news">
+    <h2 class="anchored">News</h2>
+    <div class="news"><ul>
+      <li><span class="date">Aug 2026</span><span>Presenting joint work with Marcel Olbert at Stanford SITE Public Economics and the Waterloo–Austin Symposium.</span></li>
+      <li><span class="date">Feb 2026</span><span>Joined the University of Mannheim as a Postdoctoral Researcher (Taxation, Accounting &amp; Finance; COBRA).</span></li>
+    </ul></div>
+  </section>
+
+  <section id="research">
+    <h2 class="anchored">Research</h2>
+
+    <article class="paper-card">
+      <div class="pc-left">
+        <h3 class="pc-title anchored">Closing Pandora’s IP Box: Real Effects of the Nexus Approach</h3>
+        <span class="paper-meta">single-authored · under review · 2026 · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4837668">SSRN</a></span>
+        <p class="pc-teaser">Exploiting the staggered adoption of the modified-nexus substance requirement across European IP Box regimes, I trace patenting, investment, and R&amp;D employment within multinational groups. Affiliates in IP Box countries raise domestic patent development by about 3%, alongside higher capital investment and R&amp;D employment. Non-IP Box sister affiliates show a corresponding <b>8% decline</b>, while MNE-level estimates are insignificant. This pattern is consistent with a <b>within-group reallocation</b> of innovative activity toward IP Box locations rather than net growth. <button class="abstract-toggle" id="abs-toggle" aria-expanded="false" aria-controls="abs-full"><span class="lbl">Read full abstract</span> <span class="chev">▾</span></button></p>
+        <div class="abstract-full" id="abs-full">
+          <p>To combat multinational firms’ tax avoidance, policymakers have taken three approaches: direct anti-avoidance rules, transparency mandates, and tax system changes that align corporate activity with cash tax benefits. The latter approach is little understood but has potentially meaningful economic effects beyond limiting tax avoidance. This study examines such a tax system change: the recent Nexus Approach mandated in the European Union to align tax incentives for innovation with firms’ real activity. I show that innovation output, investment, and the demand for research and development (R&amp;D) personnel increase in countries that offer preferential tax regimes for income from intellectual property (IP Box countries) after the nexus requirement is introduced. The effects are strongest among affiliates that, prior to the reform, engaged more extensively in IP-Box-related income shifting, had lower frictions to expanding domestic R&amp;D, or operated in countries with strong tax benefits and subsidy environments. This growth, however, comes at the expense of non-IP Box countries, as multinationals reallocate innovative activities and investments within their group.</p>
+        </div>
+        <a class="pc-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4837668">Read on SSRN ↗</a>
+      </div>
+      <div class="pc-right" id="fig-nexus">
+        <div class="fig-head">
+          <div class="toggle" role="tablist" aria-label="Figure mode">
+            <button id="tab-reloc" class="on" role="tab" aria-selected="true">Relocation</button>
+            <button id="tab-event" role="tab" aria-selected="false">Event study</button>
+          </div>
+          <button class="replay" id="replay">↻</button>
+        </div>
+        <div class="stage">
+          <div class="view active" id="view-reloc">
+            <svg viewbox="0 0 360 200" role="img" aria-label="One multinational group split by a dashed country border: the non-IP-box origin coefficient counts down, then the IP-box coefficient builds up.">
+              <defs><clippath id="mneClip"><rect x="20" y="30" width="320" height="150" rx="14"></rect></clippath></defs>
+              <g clip-path="url(#mneClip)"><rect class="mne-fill-ip" x="20" y="30" width="160" height="150"></rect><rect class="mne-fill-non" x="180" y="30" width="160" height="150"></rect></g>
+              <rect class="mne-border" x="20" y="30" width="320" height="150" rx="14"></rect>
+              <line class="mne-split" x1="180" y1="46" x2="180" y2="180"></line>
+              <rect x="108" y="24" width="144" height="12" fill="#fbfbfc"></rect>
+              <text class="mne-tab" x="180" y="33" text-anchor="middle">RELOCATION WITHIN MNE</text>
+              <text class="c-name" x="100" y="62" text-anchor="middle">IP-BOX</text>
+              <polygon class="caret up" id="caret-left" points="94,86 106,86 100,76"></polygon>
+              <text class="rcoef up" x="100" y="130" text-anchor="middle"><tspan class="rnum" id="num-left">+3</tspan><tspan class="pct">%</tspan></text>
+              <text class="c-name" x="260" y="62" text-anchor="middle">NON-IP-BOX</text>
+              <polygon class="caret dn" id="caret-right" points="254,76 266,76 260,86"></polygon>
+              <text class="rcoef dn" x="260" y="130" text-anchor="middle"><tspan class="rnum" id="num-right">−8</tspan><tspan class="pct">%</tspan></text>
+            </svg>
+          </div>
+          <div class="view" id="view-event">
+            <svg viewbox="0 0 340 210" role="img" aria-label="Event-study for IP-box patent development: interaction coefficients flat before the reform and rising afterwards, with 95 percent confidence intervals.">
+              <line class="es-grid" x1="45" y1="30" x2="320" y2="30"></line><line class="es-grid" x1="45" y1="75" x2="320" y2="75"></line>
+              <line class="es-zero" x1="45" y1="120" x2="320" y2="120"></line><line class="es-grid" x1="45" y1="165" x2="320" y2="165"></line>
+              <text class="es-lab" x="18" y="33">.1</text><text class="es-lab" x="12" y="78">.05</text><text class="es-lab" x="22" y="123">0</text><text class="es-lab" x="6" y="168">-.05</text>
+              <line class="es-reform" x1="182" y1="24" x2="182" y2="186"></line><line class="es-reform" x1="238" y1="24" x2="238" y2="186"></line>
+              <polyline class="es-line blue" id="es-path" pathlength="1" points="45,130.8 100,116.4 155,120 210,98.4 265,74.1 320,68.7"></polyline>
+              <g class="es-anim"><line class="es-ci-bar" x1="45" y1="81.3" x2="45" y2="156"></line><circle class="es-dot" cx="45" cy="130.8" r="3"></circle></g>
+              <g class="es-anim"><line class="es-ci-bar" x1="100" y1="102" x2="100" y2="130.8"></line><circle class="es-dot" cx="100" cy="116.4" r="3"></circle></g>
+              <g class="es-anim"><circle class="es-dot ref" cx="155" cy="120" r="3"></circle></g>
+              <g class="es-anim"><line class="es-ci-bar" x1="210" y1="79.5" x2="210" y2="116.4"></line><circle class="es-dot" cx="210" cy="98.4" r="3"></circle></g>
+              <g class="es-anim"><line class="es-ci-bar" x1="265" y1="39" x2="265" y2="108.3"></line><circle class="es-dot" cx="265" cy="74.1" r="3"></circle></g>
+              <g class="es-anim"><line class="es-ci-bar" x1="320" y1="25.5" x2="320" y2="111.9"></line><circle class="es-dot end" cx="320" cy="68.7" r="3.4"></circle></g>
+              <text class="es-lab" x="45" y="200" text-anchor="middle">t-3</text><text class="es-lab" x="100" y="200" text-anchor="middle">t-2</text><text class="es-lab" x="155" y="200" text-anchor="middle">t-1</text><text class="es-lab" x="210" y="200" text-anchor="middle">Event</text><text class="es-lab" x="265" y="200" text-anchor="middle">t+1</text><text class="es-lab" x="320" y="200" text-anchor="middle">t+2</text>
+            </svg>
+          </div>
+        </div>
+        <div class="legend" id="legend-reloc"><span><i class="sw g"></i> IP-box (gain)</span><span><i class="sw n"></i> Non-IP-box (origin)</span></div>
+        <div class="legend" id="legend-event" style="display:none"><span><i class="sw n"></i> Treatment × time (IP-box patents), 95% CI</span></div>
+        <div class="coefs">
+          <div class="coef"><div class="v"><span class="cnum" data-to="10">+10</span>pp<sup>***</sup></div><div class="k">Investment</div></div>
+          <div class="coef"><div class="v"><span class="cnum" data-to="8">+8</span>%<sup>***</sup></div><div class="k">Employment</div></div>
+          <div class="coef"><div class="v"><span class="cnum" data-to="4">+4</span>%<sup>**</sup></div><div class="k">R&amp;D jobs</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="paper-card" id="card-sun">
+      <div class="pc-left">
+        <h3 class="pc-title anchored">Don’t Fear the Sunlight: Tax Transparency and Multinational Investment in the Global South</h3>
+        <span class="paper-meta">with Marcel Olbert · work in progress · 2026</span>
+        <p class="pc-teaser">When a developing country joins the Country-by-Country Reporting (CbCR) information-exchange network, its tax authority gains access to multinationals’ global tax positions for the first time. We ask whether this transparency drives investment away, or whether, by making tax enforcement more predictable, it actually <b>attracts</b> it. Across bilateral, country, and firm-level designs, CbCR-scope firms expand their local presence, host tax revenue rises, and governance improves, especially where pre-reform corruption was high.</p>
+        <a class="pc-link" href="mailto:matti.boie-wegener@uni-mannheim.de?subject=Working%20paper%20request%3A%20Don%27t%20Fear%20the%20Sunlight">Request working paper ↗</a>
+      </div>
+      <div class="pc-right" id="fig-sun">
+        <div class="fig-head">
+          <div class="toggle" role="tablist" aria-label="Figure mode">
+            <button id="tab-sm" class="on" role="tab" aria-selected="true">Setting</button>
+            <button id="tab-se" role="tab" aria-selected="false">Event study</button>
+          </div>
+          <button class="replay" id="replay-sun">↻</button>
+        </div>
+        <div class="stage">
+          <div class="view active" id="view-sm">
+          <svg viewbox="0 0 360 205" role="img" aria-label="A multinational files a CbC report with its parent tax authority, which automatically exchanges it only with host countries inside the information-exchange network; countries outside the network do not receive it, and where it arrives the coefficients build up.">
+            <defs>
+              <g id="tw"><rect x="0" y="3" width="16" height="23" fill="currentColor"></rect><rect x="5.5" y="0" width="5" height="3" fill="currentColor"></rect><rect x="2.6" y="6" width="2.2" height="2.2" fill="#fbfbfc"></rect><rect x="6.9" y="6" width="2.2" height="2.2" fill="#fbfbfc"></rect><rect x="11.2" y="6" width="2.2" height="2.2" fill="#fbfbfc"></rect><rect x="2.6" y="10" width="2.2" height="2.2" fill="#fbfbfc"></rect><rect x="6.9" y="10" width="2.2" height="2.2" fill="#fbfbfc"></rect><rect x="11.2" y="10" width="2.2" height="2.2" fill="#fbfbfc"></rect></g>
+              <g id="tp"><polygon points="0,7 24,7 12,0" fill="currentColor"></polygon><rect x="1" y="7" width="22" height="2.5" fill="currentColor"></rect><rect x="3" y="10" width="2.3" height="9" fill="currentColor"></rect><rect x="8" y="10" width="2.3" height="9" fill="currentColor"></rect><rect x="13.7" y="10" width="2.3" height="9" fill="currentColor"></rect><rect x="18.7" y="10" width="2.3" height="9" fill="currentColor"></rect><rect x="-1" y="19" width="26" height="2.6" fill="currentColor"></rect></g>
+              <g id="dc"><rect x="0" y="0" width="11" height="14" rx="1" fill="#fbfbfc" stroke="var(--accent)" stroke-width="1"></rect><line x1="2.4" y1="4" x2="8.6" y2="4" stroke="var(--accent)" stroke-width=".8"></line><line x1="2.4" y1="7" x2="8.6" y2="7" stroke="var(--accent)" stroke-width=".8"></line><line x1="2.4" y1="10" x2="6.4" y2="10" stroke="var(--accent)" stroke-width=".8"></line></g>
+            </defs>
+            <line class="ex-arrow" x1="268" y1="56" x2="124" y2="146"></line>
+            <line class="ex-arrow" x1="268" y1="56" x2="224" y2="146"></line>
+            <line class="no-arrow" x1="268" y1="56" x2="36" y2="146"></line>
+            <line class="no-arrow" x1="268" y1="56" x2="312" y2="146"></line>
+            <line class="cn-link" x1="46" y1="40" x2="254" y2="40"></line>
+            <use href="#tw" class="gl ink" x="28" y="27"></use>
+            <text class="host-x" x="36" y="22" text-anchor="middle">MNE HQ</text>
+            <use href="#tp" class="gl ink" x="256" y="30"></use>
+            <text class="host-x" x="268" y="22" text-anchor="middle">parent tax auth.</text>
+            <use href="#tp" class="gl off" x="24" y="150"></use>
+            <use href="#tp" class="gl host" id="host-a" x="112" y="150"></use>
+            <use href="#tp" class="gl host" id="host-b" x="212" y="150"></use>
+            <use href="#tp" class="gl off" x="300" y="150"></use>
+            <text class="host-lab" x="36" y="186" text-anchor="middle">Kenya</text>
+            <text class="host-lab net" x="124" y="186" text-anchor="middle">Nigeria</text>
+            <text class="host-lab net" x="224" y="186" text-anchor="middle">India</text>
+            <text class="host-lab" x="312" y="186" text-anchor="middle">Brazil</text>
+            <text class="host-x" x="36" y="198" text-anchor="middle">no exchange</text>
+            <text class="host-x" x="312" y="198" text-anchor="middle">no exchange</text>
+            <g id="doc0" class="doc-g"><use href="#dc"></use></g>
+            <g id="doc1" class="doc-g"><use href="#dc"></use></g>
+            <g id="doc2" class="doc-g"><use href="#dc"></use></g>
+          </svg>
+          </div>
+          <div class="view" id="view-se">
+          <svg viewbox="0 0 360 200" role="img" aria-label="Firm-level OLS event study: effect on the number of subsidiaries, reference period minus one, flat before exchange activation and rising afterwards, with 95 percent confidence intervals.">
+            <text class="cap-lab" x="185" y="14" text-anchor="middle">EFFECT ON # SUBSIDIARIES</text>
+            <line class="es-grid" x1="30" y1="70" x2="345" y2="70"></line>
+            <line class="es-grid" x1="30" y1="100" x2="345" y2="100"></line>
+            <line class="es-zero" x1="30" y1="130" x2="345" y2="130"></line>
+            <text class="es-lab" x="16" y="73">.1</text>
+            <text class="es-lab" x="12" y="103">.05</text>
+            <text class="es-lab" x="20" y="133">0</text>
+            <line class="es-reform" x1="185" y1="40" x2="185" y2="170"></line>
+            <polyline class="es-line blue" id="es-path-sun" pathlength="1" points="30,121.6 58.2,119.8 86.4,124 114.5,135.4 142.7,134.2 170.9,130 199.1,83.2 227.3,95.2 255.5,92.8 283.6,94.6 311.8,86.8 340,85"></polyline>
+            <g class="es-anim"><line class="es-ci-bar" x1="30" y1="96.4" x2="30" y2="148"></line><circle class="es-dot" cx="30" cy="121.6" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="58.2" y1="101.2" x2="58.2" y2="137.8"></line><circle class="es-dot" cx="58.2" cy="119.8" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="86.4" y1="107.8" x2="86.4" y2="140.2"></line><circle class="es-dot" cx="86.4" cy="124" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="114.5" y1="121.6" x2="114.5" y2="148"></line><circle class="es-dot" cx="114.5" cy="135.4" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="142.7" y1="124" x2="142.7" y2="145"></line><circle class="es-dot" cx="142.7" cy="134.2" r="3"></circle></g>
+            <g class="es-anim"><circle class="es-dot ref" cx="170.9" cy="130" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="199.1" y1="62.2" x2="199.1" y2="104.2"></line><circle class="es-dot" cx="199.1" cy="83.2" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="227.3" y1="76" x2="227.3" y2="113.8"></line><circle class="es-dot" cx="227.3" cy="95.2" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="255.5" y1="70" x2="255.5" y2="115.6"></line><circle class="es-dot" cx="255.5" cy="92.8" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="283.6" y1="70" x2="283.6" y2="119.2"></line><circle class="es-dot" cx="283.6" cy="94.6" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="311.8" y1="60.4" x2="311.8" y2="113.2"></line><circle class="es-dot" cx="311.8" cy="86.8" r="3"></circle></g>
+            <g class="es-anim"><line class="es-ci-bar" x1="340" y1="58" x2="340" y2="112"></line><circle class="es-dot end" cx="340" cy="85" r="3.4"></circle></g>
+            <text class="es-lab" x="30" y="192" text-anchor="middle">t-6</text>
+            <text class="es-lab" x="114.5" y="192" text-anchor="middle">t-3</text>
+            <text class="es-lab" x="199.1" y="192" text-anchor="middle">0</text>
+            <text class="es-lab" x="283.6" y="192" text-anchor="middle">t+3</text>
+            <text class="es-lab" x="340" y="192" text-anchor="middle">t+5</text>
+          </svg>
+          </div>
+        </div>
+        <div class="legend" id="leg-sm"><span><i class="sw g"></i> in exchange network</span><span><i class="sw o"></i> outside network</span></div>
+        <div class="legend" id="leg-se" style="display:none"><span><i class="sw n"></i> effect on # subsidiaries, 95% CI (firm-level OLS)</span></div>
+        <div class="coefs">
+          <div class="coef"><div class="v"><span class="scnum" data-to="12" data-dec="0">+12</span>%<sup>***</sup></div><div class="k">Subsidiaries (firm)</div></div>
+          <div class="coef"><div class="v"><span class="scnum" data-to="8" data-dec="0">+8</span>%<sup>**</sup></div><div class="k">Tax revenue</div></div>
+          <div class="coef"><div class="v"><span class="scnum" data-to="0.17" data-dec="2">+0.17</span><sup>*</sup></div><div class="k">Corruption control</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="paper-card" id="card-arb">
+      <div class="pc-left">
+        <h3 class="pc-title anchored">Do Transfer Pricing Arbitration Clauses Foster Profit Shifting and Foreign Direct Investment?</h3>
+        <span class="paper-meta">with Andreas Oestreicher · work in progress · 2025</span>
+        <p class="pc-teaser">Using a stacked difference-in-differences design, we study how <b>arbitration clauses in double taxation treaties</b> reshape multinational behavior. The clauses significantly affect profit shifting and raise trade value-added at low-taxed affiliates, yet <b>weaken FDI inflows</b> into those affiliates and increase profit distributions — a tension between paper profits and real investment.</p>
+        <a class="pc-link" href="mailto:matti.boie-wegener@uni-mannheim.de?subject=Working%20paper%20request%3A%20Transfer%20Pricing%20Arbitration">Request working paper ↗</a>
+      </div>
+      <div class="pc-right" id="fig-arb">
+        <div class="stage">
+          <svg viewbox="0 0 360 200" role="img" aria-label="Concept: after a treaty arbitration clause, paper profit shifting rises while real FDI into the low-tax affiliate falls.">
+            <text class="cap-lab" x="180" y="22" text-anchor="middle">DTT · ARBITRATION CLAUSE</text>
+            <rect class="cn-box" x="20" y="86" width="66" height="34" rx="8"></rect><text class="cn-name" x="53" y="107" text-anchor="middle">HIGH-TAX</text>
+            <rect class="cn-box" x="274" y="86" width="66" height="34" rx="8"></rect><text class="cn-name" x="307" y="107" text-anchor="middle">LOW-TAX</text>
+            <line class="cn-link" x1="88" y1="103" x2="272" y2="103"></line>
+            <text class="trend-lab up" x="180" y="50" text-anchor="middle">PROFIT SHIFTING ▲</text>
+            <polyline class="spark-solid up" id="arb-up" pathlength="1" points="104,96 140,90 176,80 214,70 250,58"></polyline>
+            <text class="trend-lab dn" x="180" y="184" text-anchor="middle">REAL FDI ▼</text>
+            <polyline class="spark-dashed dn" id="arb-dn" points="104,110 140,118 176,128 214,142 250,158"></polyline>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+    <div id="publications" style="margin-top:2.4rem;">
+      <h3 class="anchored">Publications</h3>
+      <p>Boie-Wegener, M., A. Oestreicher, R. Koch &amp; L. Schön (2024). “The Fiscal Effects of Tax Rate Cuts and Depreciation Allowances in Times of Crisis.” <em>Steuer und Wirtschaft (StuW)</em>, 101(2), 104–123. <em>(published in German)</em></p>
+      <h3 class="pub-group anchored">Practitioner contributions</h3>
+      <p>Bärsch, S.-E., M. Boie-Wegener &amp; M. Olbert (2026). “Key Insights from Empirical Tax Research: A Current Overview and Implications for Corporate Practice.” <em>Der Betrieb</em>, 79(16), 954–962. <em>(published in German)</em></p>
+      <p>Boie-Wegener, M., A. Oestreicher, R. Koch, L. Schön &amp; S. Hartmann (2023). “Revenue and Investment Effects of Currently Discussed Corporate Taxation Measures.” <em>ifst-Schrift No. 550</em>. <em>(published in German)</em></p>
+      <h3 class="pub-group anchored">Third-party funding</h3>
+      <p>“Analysis of the Effects of Tax Reform Measures on the Investment Response of Companies Using Micro Simulation Approaches – Framework Conditions for Investment Incentives.” Federal Ministry for Economic Affairs and Energy, 2021–2022 (with R. Koch, D. Langenmayr, A. Oestreicher, S. Hartmann &amp; L. Schön).</p>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2 class="anchored">Teaching</h2>
+    <p>I teach corporate taxation and empirical tax research, with an emphasis on institutional knowledge and empirical research skills and an applied, policy-relevant focus.</p>
+    <p class="teach-level">Bachelor</p>
+    <div class="teach">
+      <div class="course"><span class="course-name">Company Taxes I</span><span class="course-meta">exercise class · 2021–23</span></div>
+      <div class="course"><span class="course-name">Seminar on the Determination of Income</span><span class="course-meta">supervision</span></div>
+      <div class="course"><span class="course-name">Workshop on Academic Writing and Research Methods</span><span class="course-meta">instructor · 2021–23</span></div>
+      <div class="course"><span class="course-name">Bachelor’s theses</span><span class="course-meta">supervision</span></div>
+    </div>
+    <p class="teach-level">Master</p>
+    <div class="teach">
+      <div class="course"><span class="course-name">Seminar on Company Taxation</span><span class="course-meta">supervision</span></div>
+      <div class="course"><span class="course-name">Seminar on Empirical Tax Research</span><span class="course-meta">instructor · 2025</span></div>
+      <div class="course"><span class="course-name">Workshop on Academic Writing and Research Methods</span><span class="course-meta">instructor</span></div>
+      <div class="course"><span class="course-name">Master’s theses</span><span class="course-meta">supervision</span></div>
+    </div>
+    <div class="teach-stats">
+      <div class="stat"><span class="stat-n">26+</span><span class="stat-l">bachelor’s &amp; master’s theses supervised</span></div>
+      <div class="stat"><span class="stat-n">20+</span><span class="stat-l">seminar papers · company taxation</span></div>
+      <div class="stat"><span class="stat-n">12+</span><span class="stat-l">seminar papers · income determination</span></div>
+    </div>
+  </section>
 </div>
-</section>
-<section id="research" class="level2">
-<h2 class="anchored" data-anchor-id="research">Research</h2>
-<section id="closing-pandoras-ip-box-real-effects-of-the-nexus-approach" class="level3">
-<h3 class="anchored" data-anchor-id="closing-pandoras-ip-box-real-effects-of-the-nexus-approach">Closing Pandora’s IP Box: Real Effects of the Nexus Approach</h3>
-<p><span class="paper-meta">single-authored · under review · 2026 · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4837668">SSRN</a></span></p>
-<div class="paper-abstract">
-To combat multinational firms’ tax avoidance, policymakers have taken three approaches: direct anti-avoidance rules, transparency mandates, and tax system changes that align corporate activity with cash tax benefits. The latter approach is little understood but has potentially meaningful economic effects beyond limiting tax avoidance. This study examines such a tax system change: the recent Nexus Approach mandated in the European Union to align tax incentives for innovation with firms’ real activity. I show that innovation output, investment, and the demand for research and development (R&amp;D) personnel increase in countries that offer preferential tax regimes for income from intellectual property (IP Box countries) after the nexus requirement is introduced. The effects are strongest among affiliates that, prior to the reform, engaged more extensively in IP-Box-related income shifting, had lower frictions to expanding domestic R&amp;D, or operated in countries with strong tax benefits and subsidy environments. This growth, however, comes at the expense of non-IP Box countries, as multinationals reallocate innovative activities and investments within their group.
-</div>
-</section>
-<section id="do-transfer-pricing-arbitration-clauses-foster-profit-shifting-and-foreign-direct-investment" class="level3">
-<h3 class="anchored" data-anchor-id="do-transfer-pricing-arbitration-clauses-foster-profit-shifting-and-foreign-direct-investment">Do Transfer Pricing Arbitration Clauses Foster Profit Shifting and Foreign Direct Investment?</h3>
-<p><span class="paper-meta">with Andreas Oestreicher · work in progress · 2025</span></p>
-<div class="paper-abstract">
-Using a stacked difference-in-differences design, we look into the profit-shifting responses of multinational entities (MNEs) to arbitration clauses in double taxation treaties (DTTs). Based on bilateral data on MNE financials, trade flows, and foreign direct investment (FDI), we find that the introduction of an arbitration clause in existing DTTs has, on average, a significant impact on profit shifting. In line with this, the introduction of arbitration leads to an increase in the trade value-added for affiliates in low-taxed countries. The effect is stronger for affiliates in countries having a larger exposure to tax avoidance and lower statutory tax rates. In contrast, the introduction of an arbitration clause weakens the inflow of FDI into lower-taxed affiliated companies and increases profit distributions. A series of additional tests suggest that our results are robust.
-</div>
-</section>
-<section id="dont-fear-the-sunlight-tax-transparency-and-multinational-investment-in-the-global-south" class="level3">
-<h3 class="anchored" data-anchor-id="dont-fear-the-sunlight-tax-transparency-and-multinational-investment-in-the-global-south">Don’t Fear the Sunlight: Tax Transparency and Multinational Investment in the Global South</h3>
-<p><span class="paper-meta">with Marcel Olbert · work in progress · 2026</span></p>
-</section>
-<section id="publications" class="level3">
-<h3 class="anchored" data-anchor-id="publications">Publications</h3>
-<p>Boie-Wegener, M., A. Oestreicher, R. Koch &amp; L. Schön (2024). “The Fiscal Effects of Tax Rate Cuts and Depreciation Allowances in Times of Crisis.” <em>Steuer und Wirtschaft (StuW)</em>, 101(2), 104–123. <em>(published in German)</em></p>
-<p class="pub-group">
-Practitioner contributions
-</p>
-<p>Bärsch, S.-E., M. Boie-Wegener &amp; M. Olbert (2026). “Key Insights from Empirical Tax Research: A Current Overview and Implications for Corporate Practice.” <em>Der Betrieb</em>, 79(16), 954–962. <em>(published in German)</em></p>
-<p>Boie-Wegener, M., A. Oestreicher, R. Koch, L. Schön &amp; S. Hartmann (2023). “Revenue and Investment Effects of Currently Discussed Corporate Taxation Measures.” <em>ifst-Schrift No.&nbsp;550</em>. <em>(published in German)</em></p>
-</section>
-</section>
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<p>I teach corporate taxation and empirical tax research, with an emphasis on institutional knowledge and empirical research skills and an applied, policy-relevant focus.</p>
-<p class="teach-level">
-Bachelor
-</p>
-<div class="teach">
-<div class="course">
-<span class="course-name">Company Taxes I</span><span class="course-meta">exercise class · 2021–23</span>
-</div>
-<div class="course">
-<span class="course-name">Seminar on the Determination of Income</span><span class="course-meta">supervision</span>
-</div>
-<div class="course">
-<span class="course-name">Workshop on Academic Writing and Research Methods</span><span class="course-meta">instructor · 2021–23</span>
-</div>
-<div class="course">
-<span class="course-name">Bachelor’s theses</span><span class="course-meta">supervision</span>
-</div>
-</div>
-<p class="teach-level">
-Master
-</p>
-<div class="teach">
-<div class="course">
-<span class="course-name">Seminar on Company Taxation</span><span class="course-meta">supervision</span>
-</div>
-<div class="course">
-<span class="course-name">Seminar on Empirical Tax Research</span><span class="course-meta">instructor · 2025</span>
-</div>
-<div class="course">
-<span class="course-name">Workshop on Academic Writing and Research Methods</span><span class="course-meta">instructor</span>
-</div>
-<div class="course">
-<span class="course-name">Master’s theses</span><span class="course-meta">supervision</span>
-</div>
-</div>
-<div class="teach-stats">
-<div class="stat">
-<span class="stat-n">26+</span><span class="stat-l">bachelor’s &amp; master’s theses supervised</span>
-</div>
-<div class="stat">
-<span class="stat-n">20+</span><span class="stat-l">seminar papers · company taxation</span>
-</div>
-<div class="stat">
-<span class="stat-n">12+</span><span class="stat-l">seminar papers · income determination</span>
-</div>
-</div>
-</section>
-</div>
-</div>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* nav scroll-spy: highlight the section currently in view */
+    (function(){
+      var navA = {};
+      document.querySelectorAll('.topnav nav a').forEach(function(a){ navA[a.getAttribute('href')] = a; });
+      var secs = ['top','news','research','teaching'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
+      if(!secs.length) return;
+      var spy = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(!e.isIntersecting) return;
+          var a = navA['#'+e.target.id]; if(!a) return;
+          Object.keys(navA).forEach(function(k){ navA[k].classList.toggle('on', navA[k]===a); });
+        });
+      }, { rootMargin: '-12% 0px -80% 0px', threshold: 0 });
+      secs.forEach(function(s){ spy.observe(s); });
+    })();
+    function fmtN(v, dec){ dec=dec||0; var s=v>0?'+':(v<0?'−':''); var a=Math.abs(v); return s+(dec? a.toFixed(dec) : Math.round(a)); }
+    function fmt(v){ return fmtN(v,0); }
+    function draw(el, dur, delay){ if(!el) return; if(reduce){ el.style.strokeDashoffset='0'; return; }
+      el.style.transition='none'; el.style.strokeDashoffset='1'; void el.getBoundingClientRect();
+      el.style.transition='stroke-dashoffset '+dur+'ms ease '+(delay||0)+'ms'; el.style.strokeDashoffset='0'; }
+    function fade(el, dur, delay){ if(!el) return; if(reduce){ el.style.opacity='1'; return; }
+      el.style.transition='none'; el.style.opacity='0'; void el.getBoundingClientRect();
+      el.style.transition='opacity '+dur+'ms ease '+(delay||0)+'ms'; el.style.opacity='1'; }
+    function countTo(el, target, dur, cb, dec){ dec=dec||0; var start=null;
+      function step(ts){ if(start===null) start=ts; var p=Math.min((ts-start)/dur,1); var e=1-Math.pow(1-p,3);
+        el.textContent=fmtN(target*e,dec); if(p<1){ requestAnimationFrame(step); } else { el.textContent=fmtN(target,dec); if(cb) cb(); } }
+      requestAnimationFrame(step); }
+    function onView(el, cb){ if(!el) return; if('IntersectionObserver' in window){
+        var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) cb(); }); }, {threshold:0.35}); io.observe(el);
+      } else { cb(); } }
+
+    /* ---- Card 1: Nexus ---- */
+    var tabReloc=document.getElementById('tab-reloc'), tabEvent=document.getElementById('tab-event');
+    var viewReloc=document.getElementById('view-reloc'), viewEvent=document.getElementById('view-event');
+    var esAnim=viewEvent.querySelectorAll('.es-anim'), esPath=document.getElementById('es-path');
+    var numLeft=document.getElementById('num-left'), numRight=document.getElementById('num-right');
+    var caretLeft=document.getElementById('caret-left'), caretRight=document.getElementById('caret-right');
+    var coefNums=document.querySelectorAll('#fig-nexus .cnum');
+    var legendReloc=document.getElementById('legend-reloc'), legendEvent=document.getElementById('legend-event');
+    function playCoefs(){ coefNums.forEach(function(el){ var to=parseFloat(el.getAttribute('data-to'));
+      if(reduce){ el.textContent=fmt(to); return; } el.textContent='0'; countTo(el,to,700); }); }
+    function playReloc(){ if(reduce){ numLeft.textContent=fmt(3); numRight.textContent=fmt(-8); caretLeft.style.opacity=1; caretRight.style.opacity=1; playCoefs(); return; }
+      numLeft.textContent='0'; numRight.textContent='0'; caretLeft.style.opacity=0; caretRight.style.opacity=0;
+      coefNums.forEach(function(el){ el.textContent='0'; }); void viewReloc.getBoundingClientRect();
+      caretRight.style.opacity=1; countTo(numRight,-8,750,function(){ setTimeout(function(){ caretLeft.style.opacity=1; countTo(numLeft,3,750,function(){ playCoefs(); }); },250); }); }
+    function playEvent(){ coefNums.forEach(function(el){ el.textContent=fmt(parseFloat(el.getAttribute('data-to'))); }); if(reduce) return;
+      draw(esPath,1000,0); esAnim.forEach(function(g,i){ fade(g,350,i*90); }); }
+    function playNexus(){ if(viewReloc.classList.contains('active')) playReloc(); else playEvent(); }
+    function show(m){ var r=m==='reloc'; tabReloc.classList.toggle('on',r); tabEvent.classList.toggle('on',!r);
+      tabReloc.setAttribute('aria-selected',r); tabEvent.setAttribute('aria-selected',!r);
+      viewReloc.classList.toggle('active',r); viewEvent.classList.toggle('active',!r);
+      legendReloc.style.display=r?'flex':'none'; legendEvent.style.display=r?'none':'flex'; playNexus(); }
+    tabReloc.addEventListener('click',function(){ show('reloc'); }); tabEvent.addEventListener('click',function(){ show('event'); });
+    document.getElementById('replay').addEventListener('click', playNexus);
+    var absToggle=document.getElementById('abs-toggle'), absFull=document.getElementById('abs-full');
+    absToggle.addEventListener('click',function(){ var o=absFull.classList.toggle('open'); absToggle.setAttribute('aria-expanded',o);
+      absToggle.querySelector('.lbl').textContent=o?'Hide full abstract':'Read full abstract'; });
+    onView(document.getElementById('fig-nexus'), playNexus);
+
+    /* ---- Card 2: Arbitration ---- */
+    onView(document.getElementById('fig-arb'), function(){ draw(document.getElementById('arb-up'),900,0); fade(document.getElementById('arb-dn'),700,350); });
+
+    /* ---- Card 3: Sunlight (setting + firm-level OLS event study) ---- */
+    var tabSM=document.getElementById('tab-sm'), tabSE=document.getElementById('tab-se');
+    var viewSM=document.getElementById('view-sm'), viewSE=document.getElementById('view-se');
+    var legSM=document.getElementById('leg-sm'), legSE=document.getElementById('leg-se');
+    var d0=document.getElementById('doc0'), d1=document.getElementById('doc1'), d2=document.getElementById('doc2');
+    var hostA=document.getElementById('host-a'), hostB=document.getElementById('host-b');
+    var sCoef=document.querySelectorAll('#fig-sun .scnum');
+    var esPathSun=document.getElementById('es-path-sun');
+    var esAnimSun=document.querySelectorAll('#view-se .es-anim');
+    function setT(el,x,y){ el.style.transform='translate('+x+'px,'+y+'px)'; }
+    function sunCoefsFinal(){ sCoef.forEach(function(el){ el.textContent=fmtN(parseFloat(el.getAttribute('data-to')), parseInt(el.getAttribute('data-dec'),10)||0); }); }
+    function playSunCoefs(){ sCoef.forEach(function(el){ var to=parseFloat(el.getAttribute('data-to')), dec=parseInt(el.getAttribute('data-dec'),10)||0;
+      if(reduce){ el.textContent=fmtN(to,dec); return; } el.textContent=fmtN(0,dec); countTo(el,to,750,null,dec); }); }
+    function playSunMech(){
+      if(reduce){ hostA.classList.add('net'); hostB.classList.add('net'); d0.style.opacity=0;
+        setT(d1,118,140); setT(d2,218,140); d1.style.opacity=1; d2.style.opacity=1; playSunCoefs(); return; }
+      hostA.classList.remove('net'); hostB.classList.remove('net');
+      [d0,d1,d2].forEach(function(d){ d.style.transition='none'; d.style.opacity='0'; });
+      setT(d0,40,33); setT(d1,258,48); setT(d2,258,48);
+      sCoef.forEach(function(el){ var dec=parseInt(el.getAttribute('data-dec'),10)||0; el.textContent=fmtN(0,dec); });
+      void viewSM.getBoundingClientRect();
+      d0.style.transition='transform .8s ease, opacity .3s ease'; d0.style.opacity='1'; setT(d0,250,33);
+      setTimeout(function(){ d0.style.opacity='0';
+        d1.style.transition='transform .9s ease, opacity .3s ease'; d1.style.opacity='1'; setT(d1,118,140);
+        d2.style.transition='transform .9s ease, opacity .3s ease'; d2.style.opacity='1'; setT(d2,218,140); }, 900);
+      setTimeout(function(){ hostA.classList.add('net'); hostB.classList.add('net');
+        d1.style.opacity='0'; d2.style.opacity='0'; playSunCoefs(); }, 1850);
+    }
+    function playSunEs(){ sunCoefsFinal(); if(reduce) return; draw(esPathSun,1000,0); esAnimSun.forEach(function(g,i){ fade(g,350,i*60); }); }
+    function playSunActive(){ if(viewSM.classList.contains('active')){ playSunMech(); } else { playSunEs(); } }
+    function showSun(mode){ var m=mode==='mech'; tabSM.classList.toggle('on',m); tabSE.classList.toggle('on',!m);
+      tabSM.setAttribute('aria-selected',m); tabSE.setAttribute('aria-selected',!m);
+      viewSM.classList.toggle('active',m); viewSE.classList.toggle('active',!m);
+      legSM.style.display=m?'flex':'none'; legSE.style.display=m?'none':'flex'; playSunActive(); }
+    tabSM.addEventListener('click', function(){ showSun('mech'); });
+    tabSE.addEventListener('click', function(){ showSun('es'); });
+    document.getElementById('replay-sun').addEventListener('click', playSunActive);
+    onView(document.getElementById('fig-sun'), playSunActive);
+  })();
+</script>
 
 
 
