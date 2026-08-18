@@ -15,6 +15,7 @@ website:
 format:
   html:
     theme: [cosmo, theme.scss]
+    include-in-header: _styles.html
     toc: false
     page-layout: full
     link-external-newwindow: true
