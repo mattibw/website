@@ -223,7 +223,7 @@ pagetitle: "Matti Boie-Wegener"
       <h3 class="pub-group">Practitioner contributions</h3>
       <p>Bärsch, S.-E., M. Boie-Wegener &amp; M. Olbert (2026). &ldquo;Key Insights from Empirical Tax Research: A Current Overview and Implications for Corporate Practice.&rdquo; <em>Der Betrieb</em>, 79(16), 954–962. <em>(published in German)</em></p>
       <p>Boie-Wegener, M., A. Oestreicher, R. Koch, L. Schön &amp; S. Hartmann (2023). &ldquo;Revenue and Investment Effects of Currently Discussed Corporate Taxation Measures.&rdquo; <em>ifst-Schrift No. 550</em>. <em>(published in German)</em></p>
-      <h3 class="pub-group">Third-party funding</h3>
+      <h3 class="pub-group">Policy work</h3>
       <p>&ldquo;Analysis of the Effects of Tax Reform Measures on the Investment Response of Companies Using Micro Simulation Approaches &ndash; Framework Conditions for Investment Incentives.&rdquo; Federal Ministry for Economic Affairs and Energy, 2021&ndash;2022 (with R. Koch, D. Langenmayr, A. Oestreicher, S. Hartmann &amp; L. Schön).</p>
     </div>
   </section>
